@@ -1,0 +1,108 @@
+[
+    {
+        "source": {
+            "path": "/home/das/Documents/bml/language/data/data.json",
+            "data_type": "JSON",
+            "iterator": "profile"
+        },
+        "id": "json",
+        "data_save": [
+            "id->id1",
+            "name->name1",
+            "age->age1",
+            "address.latitude->address.latitude1",
+            "address.longitude->address.longitude1",
+            "address.city.town->city",# not depend on depth of object
+            "xlsx(id1, id1)"  #  primary linking, first is self(index_name = json), second is alter(index_name = xlsx)
+        ],
+        "transform": [
+            "id1->math.sin(int(id1))",#transform function, syntax similar code python, must declare type of data in front of attribute
+            "name1->str(name1).replace('a','')+'@gmail.com'",
+            "address.latitude1->str(address.latitude1).upper()"
+        ]
+    }, {
+        "source": {
+            "path": "/home/das/Documents/bml/language/data/data1.json",
+            "data_type": "JSON",
+            "iterator": "profile"
+        },
+        "id": "json1",
+        "data_save": [
+            "json()", #reuse define, condition: declared attribute not same with another(not same addition->addition1,)
+            "addition->addition1"
+        ],
+        "transform": []
+    }, {
+        "source": {
+            "path": "/home/das/Documents/bml/language/data/data2.json",
+            "data_type": "JSON",
+            "iterator": "profile"
+        },
+        "id": "json2",
+        "data_save": [
+            "json1()",# reuse define
+            "addition1->addition2"
+        ],
+        "transform": []
+    },
+    {
+        "source": {
+            "path": "/home/das/Documents/bml/language/data/data.xlsx",
+            "data_type": "XLSX",
+            "iterator": "Sheet2"
+        },
+        "id": "xlsx",
+        "data_save": [
+            "id->id1",
+            "name->name1",
+            "height->height1",
+            "weight->weight1",
+            "xml(id1,id1)"
+        ],
+        "transform": []
+    },
+    {
+        "source": {
+            "path": "/home/das/Documents/bml/language/data/data.xml",
+            "data_type": "XML",
+            "iterator": "root.item",
+        },
+        "id": "xml",
+        "data_save": [
+            "id->id1",
+            "from->from1",
+            "body->body1",
+            "year->year1"
+        ],
+        "transform": []
+    },
+    {
+        "source": {
+            "path": "localhost/thang/nqt760847/thang",
+            "data_type": "SQL",
+            "iterator": "land"
+        },
+        "id": "mysql",
+        "data_save": [
+            "id->id1",
+            "square->square1",
+            "address->address1"
+        ],
+        "transform": []
+    }
+    ,
+    {
+        "source": {
+            "path": "178.128.217.254/9200/111",
+            "data_type": "ELASTIC_SEARCH",
+            "iterator": "kyc_user"
+        },
+        "id": "elasticseach",
+        "data_save": [
+            "username->username1",
+            "role->role1",
+            "public_key->public_key1"
+        ],
+        "transform": []
+    }
+]

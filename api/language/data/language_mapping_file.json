@@ -1,0 +1,76 @@
+[
+  {
+    "source": {
+      "path": "/home/das/Documents/datablockchain/language/data/data.json",
+      "type": "FILE",
+      "data_type": "JSON",
+      "iterator": "profile"
+    },
+    "id": "json",
+    "data_save": [
+      "id",
+      "name",
+      "age",
+      "address.latitude",
+      "address.longitude"
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/das/Documents/datablockchain/language/data/data.xlsx",
+      "type": "FILE",
+      "data_type": "XLSX",
+      "iterator": "Sheet2"//tên trang tính
+    },
+    "id": "xlsx",
+    "data_save": [
+      "id",
+      "name",
+      "height",
+      "weight"
+    ]
+  },
+  {
+    "source": {
+      "path": "/home/das/Documents/datablockchain/language/data/data.xml",
+      "data_type": "XML",
+      "iterator": "root.item",
+      "type": "FILE"
+    },
+    "id": "xml",
+    "data_save": [
+      "id",
+      "from",
+      "body",
+      "year"
+    ]
+  },
+  {
+    "source": {
+      "path": "host/username/password/database",
+      "type": "DATABASE",
+      "data_type": "SQL",
+      "iterator": "land" // tên table
+    },
+    "id": "mysql",
+    "data_save": [
+      "id",
+      "square",
+      "address"
+    ]
+  },
+  {
+    "source": {
+      "type": "DATABASE",
+      "path": "host/port/password",
+      "data_type": "ELASTIC_SEARCH",
+      "iterator": "kyc_user" // ten index
+    },
+    "id": "elasticseach",
+    "data_save": [
+      "username",
+      "role",
+      "public_key"
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message SimpleSupplyPayload{
+    enum Action {
+        SYNCHRONIZE_DATA = 0;
+    }
+    Action action = 1;
+    SynchronizeData synchronize_data =2;
+}
+
+
+message SynchronizeData {
+    string data = 1;
+}

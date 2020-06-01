@@ -1,0 +1,36 @@
+version: "3"
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    container_name: simple-supply-elasticsearch
+    expose:
+      - 9201
+    ports:
+      - '9201:9200'
+    environment:
+      ES_JAVA_OPTS: '-Xms2g -Xmx2g'
+      network.bind_host: 0.0.0.0
+      network.host: 0.0.0.0
+      discovery.type: single-node
+    volumes:
+      - "./es/data:/usr/share/elasticsearch/data"
+    logging:
+      driver: none
+    networks:
+      - bml_sawtooth_bml
+
+  ipfs-bml:
+    image: ipfs/go-ipfs:v0.4.23
+    hostname: ipfs-bml
+    volumes:
+      - "./data/ipfs:/data/ipfs"
+    ports:
+      - "5001:5001"
+      - "4001:4001"
+      - "8080:8080"
+    networks:
+      - bml_sawtooth_bml
+
+networks:
+  bml_sawtooth_bml:
+    external: true
