@@ -11,7 +11,7 @@ jsonschema==3.2.0
 multiaddr==0.0.8
 multidict==4.5.2
 pylint==1.9.2
-PyYAML==5.1.2
+PyYAML==5.4
 requests
 ujson==1.35
 uvloop==0.14.0
