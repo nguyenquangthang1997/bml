@@ -16,7 +16,7 @@ requests
 ujson==1.35
 uvloop==0.14.0
 aiofiles==0.4.0
-celery==4.2.0
+celery==5.2.2
 puka==0.0.8
 Crypto==1.4.1
 pycrypto==2.6.1
